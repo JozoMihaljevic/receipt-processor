@@ -59,7 +59,7 @@ describe('AppComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it(`should have the 'kupovina' title`, () => {
+    it(`should have the 'receipt-processor' title`, () => {
         expect(component.title).toEqual('kupovina');
     });
 });

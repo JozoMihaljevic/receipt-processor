@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "kupovina:build"
+            "buildTarget": "receipt-processor:build"
           }
         },
         "test": {
