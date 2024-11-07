@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kupovina": {
+    "receipt-processor": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/kupovina",
+            "outputPath": "dist/receipt-processor",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "kupovina:build:production"
+              "buildTarget": "receipt-processor:build:production"
             },
             "development": {
-              "buildTarget": "kupovina:build:development"
+              "buildTarget": "receipt-processor:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && copyfiles _redirects dist/kupovina/browser",
+    "build": "ng build && copyfiles _redirects dist/receipt-processor/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
