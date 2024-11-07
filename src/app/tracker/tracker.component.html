@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h2>File upload</h2>
+
+    <!-- File Upload Form -->
+    <div class="mt-4">
+        <div class="mb-3">
+            <label for="fileInput" class="form-label">Choose an image to upload</label>
+            <input type="file" id="fileInput" (change)="onFileSelectedGoogleVision($event)" accept="image/*" class="form-control" required>
+        </div>
+    </div>
+
+    <div *ngIf="receipt">
+        <h3 class="mb-4">{{ receipt.storeName }}</h3>
+        <p class="text-muted">Date: {{ receipt.date }}</p>
+        <p class="fw-bold">Total: {{ receipt.totalSum }}€</p>
+
+        <div *ngFor="let category of getGroupedItems() | keyvalue">
+            <h4>{{ category.key }}</h4>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of category.value">
+                    <span class="text-truncate" style="max-width: 90%;">
+                        {{ item.name }}
+                        <span *ngIf="item.quantity"> - Qty: {{ item.quantity }}</span>
+                        <span class="text-muted"> - Price: {{ item.unitPrice }}€</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="isLoading" class="loading-backdrop">
+        <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>

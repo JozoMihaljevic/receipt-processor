@@ -1,0 +1,46 @@
+<div class="d-flex flex-column full-height-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" [routerLink]="['/tracker']">ReceiptProcessor</a>
+
+            <div class="d-flex ms-auto align-items-center">
+                               <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" *ngIf="isLoggedIn">
+                        <a class="nav-link active" aria-current="page" routerLink="/tracker" routerLinkActive="active">Tracker</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLoggedIn">
+                        <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isLoggedIn">
+                        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLoggedIn">
+                        <a class="nav-link" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="flex-grow-1">
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-4 mb-3">
+        <hr>
+        <div class="container">
+            <p class="mb-0">
+                &copy; {{ currentYear }} Made by Stack
+            </p>
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,36 @@
+h3, h4 {
+    font-weight: bold;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+.list-group-item {
+    transition: all 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.icon-container {
+    display: flex;
+    gap: 10px;
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icon-click-effect {
+    color: #007bff;
+}
+
+.icon-click-effect:hover {
+    color: #0056b3;
+    transform: scale(1.1);
+    transition: color 0.3s, transform 0.3s;
+}
