@@ -52,11 +52,11 @@ export class TrackerComponent {
     processWithGemini(visionResult: any) {
         const extractedText = visionResult.responses[0].fullTextAnnotation?.text || '';
         console.log('Text to process:', extractedText);
+        this.isLoading = true;
         this.testGemini(extractedText);
     }
 
     testGemini(extractedText: string) {
-        this.isLoading = true;
         this.googleVisionService.testGeminiPro(extractedText)
             .then((receipt: Receipt) => {
                 this.isLoading = false;

@@ -1,7 +1,7 @@
 export interface Item {
     name: string;
     quantity: string | null; // Quantity can be a string or null
-    unitPrice: string;       // Price of the item
+    price: string;           // Price of the item
     category: string;        // Category of the item
 }
 
