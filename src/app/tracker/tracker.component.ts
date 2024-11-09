@@ -40,6 +40,7 @@ export class TrackerComponent {
             reader.onload = () => {
                 const base64Image = reader.result?.toString().split(',')[1];
                 if (base64Image) {
+                    this.isLoading = true;
                     this.googleVisionService.extractTextFromImage(base64Image).subscribe(response => {
                         console.log('Extracted Text:', response);
                         this.processWithGemini(response);
@@ -52,7 +53,6 @@ export class TrackerComponent {
     processWithGemini(visionResult: any) {
         const extractedText = visionResult.responses[0].fullTextAnnotation?.text || '';
         console.log('Text to process:', extractedText);
-        this.isLoading = true;
         this.testGemini(extractedText);
     }
 
