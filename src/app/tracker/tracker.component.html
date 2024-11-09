@@ -5,7 +5,7 @@
     <div class="mt-4">
         <div class="mb-3">
             <label for="fileInput" class="form-label">Choose an image to upload</label>
-            <input type="file" id="fileInput" (change)="onFileSelectedGoogleVision($event)" accept="image/*" class="form-control" required>
+            <input type="file" id="fileInput" (change)="onFileSelectedForTextExtraction($event)" accept="image/*" class="form-control" required>
         </div>
     </div>
 
@@ -26,6 +26,19 @@
                 </li>
             </ul>
         </div>
+
+      <button (click)="confirmAndSaveReceipt()">Confirm and Save Receipt</button>
+
+    </div>
+    <button (click)="loadReceipts()">Load all receipts</button>
+    <div *ngIf="userReceipts">
+      <pre>
+        {{userReceipts | json }}
+      </pre>
+    </div>
+    <button (click)="showLoggedInUser()">Who is logged in</button>
+    <div *ngIf="user">
+      {{user.email}}
     </div>
     <div *ngIf="isLoading" class="loading-backdrop">
         <div class="spinner-border text-danger" role="status">

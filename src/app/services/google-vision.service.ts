@@ -105,7 +105,7 @@ export class GoogleVisionService {
         return this.http.post(this.visionEndpoint, request);
     }
 
-    async testGeminiPro(extractedText: string): Promise<Receipt> {
+    async processExtractedText(extractedText: string): Promise<Receipt> {
         try {
             // Update the prompt to include strict JSON format instructions
             const prompt = `You are an expert that helps me while shopping in Germany. I want to get a JSON object with storeName, date, totalSum and items properties. The categories are predefined "fruits and vegetables", "sweets and snacks", "dairy", "meat", "hygiene", "beverages", and "uncategorized" and categorize items to respective category. If an item doesn't match any predefined category, place it in "uncategorized".\n Dont make up categories. Process this receipt data into a JSON object ${extractedText}.\n\n`;
@@ -114,7 +114,7 @@ export class GoogleVisionService {
             const result = await this.model.generateContent(prompt);
 
             // Get response text
-            let responseText = await result.response.text();
+            let responseText = result.response.text();
 
             // Clean up the response if necessary
             responseText = responseText.replace(/``` JSON|```json|```JSON|``` json|```/g, '').trim();
