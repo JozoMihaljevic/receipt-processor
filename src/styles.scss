@@ -1,0 +1,87 @@
+/* Material Design Theme */
+@use '@angular/material' as mat;
+
+/* Custom Material Theme */
+@include mat.core();
+
+$primary-palette: mat.define-palette(mat.$indigo-palette);
+$accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$warn-palette: mat.define-palette(mat.$red-palette);
+
+$theme: mat.define-light-theme((
+color: (
+primary: $primary-palette,
+          accent: $accent-palette,
+                   warn: $warn-palette,
+),
+typography: mat.define-typography-config(),
+density: 0,
+));
+
+@include mat.all-component-themes($theme);
+
+/* Global Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.page-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Layout */
+@media (max-width: 599px) {
+  .page-container {
+    padding: 16px;
+  }
+}
+
+/* Material Design Elevation Classes */
+.mat-elevation-z1 { @include mat.elevation(1); }
+.mat-elevation-z2 { @include mat.elevation(2); }
+.mat-elevation-z4 { @include mat.elevation(4); }
+
+/* Loading Spinner Container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Utility Classes */
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-2 { margin-top: 16px; }
+.mb-2 { margin-bottom: 16px; }
+.ml-2 { margin-left: 16px; }
+.mr-2 { margin-right: 16px; }

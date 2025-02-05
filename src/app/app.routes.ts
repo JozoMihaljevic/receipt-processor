@@ -1,12 +1,26 @@
 import { Routes } from '@angular/router';
-import {AboutComponent} from "./about/about.component";
-import {LoginComponent} from "./login/login.component";
-import {AuthGuard} from "./auth.guard";
-import {TrackerComponent} from "./tracker/tracker.component";
+import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'tracker', pathMatch: 'full' },
-    { path: 'tracker', component: TrackerComponent, canActivate: [AuthGuard] },
-    { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
-    { path: 'login', component: LoginComponent }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('./dashboard/dashboard.component')
+      .then(m => m.DashboardComponent),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'scan',
+    loadComponent: () => import('./scan/scan.component')
+      .then(m => m.ScanComponent),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'history',
+    loadComponent: () => import('./history/history.component')
+      .then(m => m.HistoryComponent),
+    canActivate: [AuthGuard]
+  }
 ];
