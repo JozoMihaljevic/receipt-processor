@@ -9,7 +9,7 @@ import {Receipt} from "../models/receipt.model";
     providedIn: 'root'
 })
 export class GoogleVisionService {
-    private apiKey = 'AIzaSyCywSVU6iTwuy9F2Muopnr2JtMyT6UF3y4';
+    private apiKey = 'y4apikey';
     private visionEndpoint = `https://vision.googleapis.com/v1/images:annotate?key=${this.apiKey}`;
     schema = {
         description: "Representation of a receipt including items with category information",
